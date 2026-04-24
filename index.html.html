@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Madhya Vidyalaya Usari – Biraul, Darbhanga</title>
+<link href="https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&family=Merriweather:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --saffron:#E8590A;
+  --saffron-l:#FF7C35;
+  --green:#0D7A10;
+  --green-l:#19A81D;
+  --navy:#0B1D3A;
+  --navy2:#122645;
+  --navy3:#1A3A6E;
+  --gold:#F4C430;
+  --gold-l:#FFD966;
+  --cream:#F7F4EE;
+  --white:#FFFFFF;
+  --gray:#6B7280;
+  --border:#E5E7EB;
+  --shadow:0 4px 24px rgba(11,29,58,0.10);
+  --shadow-lg:0 12px 40px rgba(11,29,58,0.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Khand','Inter',sans-serif;background:var(--cream);color:var(--navy);overflow-x:hidden;letter-spacing:.01em}
+h1,h2,h3,.stat-label,.stat-num,.badge,.hl-title,.info-value,.c-value,.tc-name,.section-title,.admission-hero h2,.contact-cta p{font-family:'Khand',sans-serif;letter-spacing:.03em}
+
+/* ═══ TICKER ═══ */
+.ticker{background:var(--navy);color:#C9D9F0;font-size:.82rem;font-family:'Khand',sans-serif;font-weight:500;padding:6px 0;overflow:hidden;white-space:nowrap;letter-spacing:.04em}
+.ticker-inner{display:inline-block;animation:ticker 28s linear infinite;padding-left:100%}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.ticker span{margin-right:60px;letter-spacing:.04em;font-family:'Khand',sans-serif}
+.ticker strong{color:var(--gold);font-family:'Khand',sans-serif;font-weight:700}
+
+/* ═══ HEADER ═══ */
+header{
+  background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 55%,var(--navy3) 100%);
+  color:#fff;padding:0;position:relative;overflow:hidden
+}
+.header-bg-pattern{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle at 15% 50%,rgba(232,89,10,.12) 0%,transparent 50%),
+    radial-gradient(circle at 85% 20%,rgba(13,122,16,.10) 0%,transparent 45%),
+    radial-gradient(circle at 60% 90%,rgba(244,196,48,.06) 0%,transparent 40%);
+  pointer-events:none
+}
+.header-dots{
+  position:absolute;top:0;right:0;width:340px;height:100%;
+  background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:22px 22px;pointer-events:none
+}
+.header-inner{
+  max-width:1100px;margin:0 auto;padding:36px 28px;
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;gap:24px;position:relative;z-index:2
+}
+@media(max-width:700px){
+  .header-inner{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
+  .header-logo-right{display:none}
+}
+
+/* Ashoka logo SVG */
+.emblem-wrap{
+  width:100px;height:100px;border-radius:50%;
+  background:linear-gradient(145deg,var(--saffron),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 4px rgba(255,255,255,.15),0 8px 28px rgba(232,89,10,.45);
+  flex-shrink:0
+}
+.emblem-wrap svg{width:68px;height:68px}
+
+.header-text h1{
+  font-family:'Khand','Merriweather',serif;
+  font-size:clamp(1.5rem,3.8vw,2.2rem);font-weight:700;line-height:1.2;
+  text-shadow:0 2px 10px rgba(0,0,0,.35);letter-spacing:.03em
+}
+.header-text h1 em{color:var(--gold);font-style:normal}
+.header-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:600;letter-spacing:.04em;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.09);color:#C9D9F0
+}
+.badge.gold{background:rgba(244,196,48,.18);border-color:rgba(244,196,48,.4);color:var(--gold-l)}
+.badge.green{background:rgba(13,122,16,.2);border-color:rgba(25,168,29,.4);color:#6EE87A}
+
+/* right decorative SVG building */
+.header-logo-right{opacity:.18}
+
+/* ═══ TRICOLOR ═══ */
+.tricolor{height:6px;background:linear-gradient(to right,var(--saffron) 33.33%,#fff 33.33% 66.66%,var(--green) 66.66%)}
+
+/* ═══ NAV ═══ */
+nav{background:var(--navy2);position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(0,0,0,.35)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+nav a{
+  color:#93B4D8;text-decoration:none;padding:15px 20px;
+  font-size:.88rem;font-weight:600;white-space:nowrap;font-family:'Khand',sans-serif;
+  border-bottom:3px solid transparent;transition:all .2s;letter-spacing:.06em;text-transform:uppercase
+}
+nav a:hover{color:#fff;border-bottom-color:var(--saffron);background:rgba(232,89,10,.1)}
+
+/* ═══ ADMISSION HERO ═══ */
+.admission-hero{
+  background:linear-gradient(135deg,var(--saffron) 0%,#C44A00 100%);
+  color:#fff;padding:32px 28px;text-align:center;position:relative;overflow:hidden
+}
+.admission-hero::before{
+  content:'';position:absolute;top:-30px;left:-30px;width:200px;height:200px;
+  background:rgba(255,255,255,.07);border-radius:50%
+}
+.admission-hero::after{
+  content:'';position:absolute;bottom:-50px;right:-30px;width:240px;height:240px;
+  background:rgba(0,0,0,.08);border-radius:50%
+}
+.admission-hero h2{
+  font-family:'Khand',sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);
+  font-weight:700;margin-bottom:8px;position:relative;z-index:1;letter-spacing:.04em
+}
+.admission-hero p{font-size:.9rem;opacity:.93;position:relative;z-index:1;margin-bottom:16px}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:var(--saffron);font-weight:700;
+  padding:12px 28px;border-radius:40px;text-decoration:none;font-size:.9rem;
+  box-shadow:0 6px 20px rgba(0,0,0,.2);transition:transform .2s,box-shadow .2s;
+  position:relative;z-index:1
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.3)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.15);color:#fff;font-weight:600;
+  padding:11px 22px;border-radius:40px;text-decoration:none;font-size:.85rem;
+  border:2px solid rgba(255,255,255,.4);transition:all .2s;margin-left:12px;
+  position:relative;z-index:1
+}
+.btn-secondary:hover{background:rgba(255,255,255,.25)}
+
+/* ═══ MAIN ═══ */
+main{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:52px 0}
+.section-title{
+  font-family:'Khand',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;
+  color:var(--navy);margin-bottom:32px;letter-spacing:.04em;
+  display:flex;align-items:center;gap:14px
+}
+.section-title .pill{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0
+}
+.section-title::after{
+  content:'';flex:1;height:2px;
+  background:linear-gradient(to right,rgba(232,89,10,.5),transparent);border-radius:2px
+}
+.divider{border:none;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+
+/* ═══ STATS ═══ */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.stat-card{
+  background:#fff;border-radius:18px;padding:28px 18px;text-align:center;
+  box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;
+  border-top:5px solid transparent;position:relative;overflow:hidden
+}
+.stat-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--saffron),var(--gold))
+}
+.stat-card:nth-child(1){border-top-color:var(--saffron)}
+.stat-card:nth-child(2){border-top-color:var(--green)}
+.stat-card:nth-child(3){border-top-color:var(--gold)}
+.stat-card:nth-child(4){border-top-color:var(--navy3)}
+.stat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.stat-icon{font-size:2rem;margin-bottom:10px}
+.stat-num{font-family:'Merriweather',serif;font-size:2.4rem;font-weight:900;color:var(--navy);line-height:1}
+.stat-label{font-size:.75rem;color:var(--gray);margin-top:6px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+
+/* ═══ ABOUT ═══ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:680px){.about-grid{grid-template-columns:1fr}}
+.about-main{
+  background:#fff;border-radius:20px;padding:32px;
+  box-shadow:var(--shadow);border-left:5px solid var(--saffron);
+  line-height:1.9;color:#374151;font-size:.92rem
+}
+.about-main strong{color:var(--navy);font-weight:700}
+.info-card{
+  background:#fff;border-radius:20px;padding:28px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px
+}
+.info-row{display:flex;align-items:flex-start;gap:14px}
+.info-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:linear-gradient(135deg,var(--navy),var(--navy3));
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0
+}
+.info-label{font-size:.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:2px}
+.info-value{font-size:.9rem;font-weight:700;color:var(--navy)}
+
+/* ═══ HIGHLIGHTS ═══ */
+.highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.highlight-card{
+  background:#fff;border-radius:18px;padding:26px 22px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;
+  transition:transform .25s,box-shadow .25s;border-top:4px solid var(--saffron)
+}
+.highlight-card:nth-child(even){border-top-color:var(--green)}
+.highlight-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.hl-icon-wrap{
+  width:54px;height:54px;border-radius:14px;
+  background:linear-gradient(135deg,var(--saffron),var(--saffron-l));
+  display:flex;align-items:center;justify-content:center
+}
+.highlight-card:nth-child(even) .hl-icon-wrap{background:linear-gradient(135deg,var(--green),var(--green-l))}
+.hl-title{font-weight:700;color:var(--navy);font-size:.95rem}
+.hl-desc{font-size:.82rem;color:var(--gray);line-height:1.6}
+
+/* ═══ TEACHERS ═══ */
+.teachers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.teacher-card{
+  background:#fff;border-radius:20px;padding:28px 20px;text-align:center;
+  box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;
+  position:relative;overflow:hidden
+}
+.teacher-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.tc-header{
+  position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--saffron),var(--green))
+}
+.tc-avatar{
+  width:72px;height:72px;border-radius:50%;margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative
+}
+.tc-avatar svg{width:72px;height:72px}
+.tc-name{font-weight:700;color:var(--navy);font-size:.92rem;line-height:1.3}
+.tc-role{
+  display:inline-block;margin-top:8px;
+  padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;
+  letter-spacing:.04em;background:var(--cream);color:var(--saffron);
+  border:1px solid rgba(232,89,10,.25)
+}
+.tc-role.principal{background:linear-gradient(135deg,var(--saffron),var(--saffron-l));color:#fff;border:none}
+.tc-num{font-size:.7rem;color:var(--gray);margin-top:4px}
+
+/* ═══ CONTACT ═══ */
+.contact-section{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 60%,var(--navy3) 100%);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.contact-top{padding:40px 36px 32px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:640px){.contact-top{grid-template-columns:1fr;padding:28px 22px}}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.c-icon{
+  width:48px;height:48px;border-radius:14px;flex-shrink:0;
+  background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  border:1px solid rgba(255,255,255,.18)
+}
+.c-label{font-size:.7rem;color:#7FA8D8;text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:4px}
+.c-value{font-weight:700;color:#fff;font-size:.95rem}
+.c-value a{color:var(--gold-l);text-decoration:none}
+.contact-cta{
+  background:linear-gradient(135deg,var(--saffron),#C44A00);
+  padding:28px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px
+}
+.contact-cta p{color:#fff;font-weight:600;font-size:1rem}
+.contact-cta small{display:block;font-weight:400;opacity:.85;font-size:.82rem;margin-top:2px}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--navy);color:#7FA8D8;text-align:center;padding:32px 24px;margin-top:40px;font-size:.8rem;line-height:2}
+footer strong{color:#fff}
+.footer-tricolor{width:70px;height:5px;border-radius:3px;margin:12px auto;background:linear-gradient(to right,var(--saffron) 33%,#fff 33% 66%,var(--green) 66%)}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.fu{opacity:0;animation:fadeUp .65s ease both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
+.d5{animation-delay:.40s}.d6{animation-delay:.48s}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>🎉 <strong>New Session 2026–2027 Admission OPEN</strong> — Call: 9939892025</span>
+    <span>📚 Madhya Vidyalaya Usari, Biraul, Darbhanga — Est. 1961</span>
+    <span>🏫 UDISE Code: <strong>10131106401</strong></span>
+    <span>👨‍💼 Headmaster: <strong>Shri Lalit Kumar</strong></span>
+    <span>📞 Contact for Admission: <strong>9939892025</strong></span>
+    <span>🎉 <strong>New Session 2026–2027 Admission OPEN</strong> — Call: 9939892025</span>
+    <span>📚 Madhya Vidyalaya Usari, Biraul, Darbhanga — Est. 1961</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-bg-pattern"></div>
+  <div class="header-dots"></div>
+  <div class="header-inner">
+    <!-- Ashoka Wheel Emblem SVG -->
+    <div class="emblem-wrap fu">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Book base -->
+        <rect x="15" y="58" width="70" height="8" rx="4" fill="rgba(255,255,255,0.95)"/>
+        <rect x="20" y="48" width="60" height="12" rx="3" fill="rgba(255,255,255,0.85)"/>
+        <rect x="25" y="38" width="50" height="12" rx="3" fill="rgba(255,255,255,0.75)"/>
+        <!-- Lamp flame -->
+        <ellipse cx="50" cy="25" rx="9" ry="13" fill="#FFD966"/>
+        <ellipse cx="50" cy="28" rx="5" ry="8" fill="#FFA500"/>
+        <ellipse cx="50" cy="31" rx="3" ry="5" fill="#FF6B00"/>
+        <!-- Lamp base -->
+        <rect x="46" y="36" width="8" height="5" rx="2" fill="rgba(255,255,255,0.9)"/>
+        <!-- Stars -->
+        <text x="18" y="46" font-size="8" fill="rgba(255,255,255,0.7)">★</text>
+        <text x="72" y="46" font-size="8" fill="rgba(255,255,255,0.7)">★</text>
+        <!-- Ashoka line deco -->
+        <line x1="20" y1="70" x2="80" y2="70" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+        <circle cx="50" cy="70" r="3" fill="rgba(255,255,255,0.6)"/>
+      </svg>
+    </div>
+
+    <div class="header-text fu d1">
+      <h1>मध्य विद्यालय उसरी, बिरौल<br/><em>Darbhanga, Bihar</em></h1>
+      <div class="header-meta">
+        <span class="badge gold">⭐ Est. 1961</span>
+        <span class="badge green">✅ Govt. Recognized</span>
+        <span class="badge">UDISE: 10131106401</span>
+      </div>
+    </div>
+
+    <!-- Decorative school building SVG -->
+    <div class="header-logo-right fu d2">
+      <svg width="130" height="120" viewBox="0 0 130 120" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="55" width="100" height="60" rx="2" fill="white" opacity=".9"/>
+        <rect x="5" y="50" width="120" height="10" rx="2" fill="white"/>
+        <!-- Windows -->
+        <rect x="22" y="68" width="18" height="20" rx="2" fill="#93B4D8" opacity=".7"/>
+        <rect x="56" y="68" width="18" height="20" rx="2" fill="#93B4D8" opacity=".7"/>
+        <rect x="90" y="68" width="18" height="20" rx="2" fill="#93B4D8" opacity=".7"/>
+        <!-- Door -->
+        <rect x="51" y="90" width="28" height="25" rx="2" fill="#7FA8D8" opacity=".8"/>
+        <!-- Roof triangle -->
+        <polygon points="65,10 5,50 125,50" fill="white" opacity=".7"/>
+        <!-- Flag pole -->
+        <line x1="65" y1="10" x2="65" y2="0" stroke="white" stroke-width="2"/>
+        <rect x="65" y="0" width="18" height="8" fill="#E8590A"/>
+        <!-- Steps -->
+        <rect x="44" y="112" width="42" height="4" rx="1" fill="white" opacity=".5"/>
+        <rect x="38" y="115" width="54" height="4" rx="1" fill="white" opacity=".4"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- TRICOLOR -->
+<div class="tricolor"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#about">🏛 About Us</a>
+    <a href="#admission">📋 Admission</a>
+    <a href="#highlights">⭐ Highlights</a>
+    <a href="#teachers">👩‍🏫 Faculty</a>
+    <a href="#contact">📞 Contact</a>
+  </div>
+</nav>
+
+<!-- ADMISSION BANNER -->
+<div class="admission-hero" id="admission">
+  <h2>🎉 New Academic Session 2026–2027 — Admission Open!</h2>
+  <p>Enroll your child today for quality government education · अभी प्रवेश लें</p>
+  <a href="tel:9939892025" class="btn-primary">📞 Call: 9939892025</a>
+  <a href="#contact" class="btn-secondary">Know More →</a>
+</div>
+
+<main>
+
+<!-- STATS -->
+<section class="fu">
+  <div class="stats-grid">
+    <div class="stat-card fu d1">
+      <div class="stat-icon">🏫</div>
+      <div class="stat-num">1961</div>
+      <div class="stat-label">Established</div>
+    </div>
+    <div class="stat-card fu d2">
+      <div class="stat-icon">👨‍🏫</div>
+      <div class="stat-num">12</div>
+      <div class="stat-label">Faculty Members</div>
+    </div>
+    <div class="stat-card fu d3">
+      <div class="stat-icon">📅</div>
+      <div class="stat-num">65+</div>
+      <div class="stat-label">Years of Service</div>
+    </div>
+    <div class="stat-card fu d4">
+      <div class="stat-icon">🎓</div>
+      <div class="stat-num">2026</div>
+      <div class="stat-label">New Session</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">
+    <div class="pill" style="background:linear-gradient(135deg,#0B1D3A,#1A3A6E)">
+      <!-- Building SVG icon -->
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="11" width="20" height="13" rx="1" fill="white" opacity=".9"/>
+        <rect x="1" y="10" width="24" height="3" rx="1" fill="white" opacity=".7"/>
+        <polygon points="13,2 1,10 25,10" fill="white" opacity=".6"/>
+        <rect x="10" y="16" width="6" height="8" rx="1" fill="#0B1D3A" opacity=".5"/>
+        <rect x="5" y="14" width="4" height="4" rx="1" fill="#0B1D3A" opacity=".3"/>
+        <rect x="17" y="14" width="4" height="4" rx="1" fill="#0B1D3A" opacity=".3"/>
+      </svg>
+    </div>
+    About Our School
+  </h2>
+  <div class="about-grid">
+    <div class="about-main fu d1">
+      <p>
+        <strong>Madhya Vidyalaya Usari, Biraul, Darbhanga</strong> was established in <strong>1961</strong> and has been a pillar of quality education for the local community for over <strong>six decades</strong>.<br/><br/>
+        Operating under the <strong>Bihar Government's Education Department</strong>, the school is committed to holistic development of students through a structured curriculum, dedicated faculty, and a nurturing environment.<br/><br/>
+        Under the able leadership of Headmaster <strong>Shri Lalit Kumar</strong> and a team of <strong>12 dedicated teachers</strong>, the school strives for academic excellence and character building.<br/><br/>
+        Admissions for the new academic session <strong>2026–2027</strong> are now open. Contact us today!
+      </p>
+    </div>
+    <div class="info-card fu d2">
+      <div class="info-row">
+        <div class="info-icon">🏫</div>
+        <div>
+          <div class="info-label">School Name</div>
+          <div class="info-value">Madhya Vidyalaya Usari</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Location</div>
+          <div class="info-value">Usari, Biraul, Darbhanga, Bihar</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🪪</div>
+        <div>
+          <div class="info-label">UDISE Code</div>
+          <div class="info-value">10131106401</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📅</div>
+        <div>
+          <div class="info-label">Established</div>
+          <div class="info-value">1961</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">👨‍💼</div>
+        <div>
+          <div class="info-label">Headmaster</div>
+          <div class="info-value">Shri Lalit Kumar</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">Contact</div>
+          <div class="info-value"><a href="tel:9939892025" style="color:var(--saffron)">9939892025</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <h2 class="section-title">
+    <div class="pill" style="background:linear-gradient(135deg,var(--saffron),var(--saffron-l))">
+      <!-- Star SVG -->
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <polygon points="13,3 15.5,10 23,10 17,14.5 19.5,22 13,17.5 6.5,22 9,14.5 3,10 10.5,10" fill="white"/>
+      </svg>
+    </div>
+    School Highlights
+  </h2>
+  <div class="highlights-grid">
+    <div class="highlight-card fu d1">
+      <div class="hl-icon-wrap">
+        <!-- Book SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="4" y="4" width="20" height="22" rx="3" fill="white" opacity=".9"/>
+          <rect x="7" y="8" width="14" height="2" rx="1" fill="rgba(232,89,10,0.7)"/>
+          <rect x="7" y="12" width="12" height="2" rx="1" fill="rgba(232,89,10,0.5)"/>
+          <rect x="7" y="16" width="10" height="2" rx="1" fill="rgba(232,89,10,0.4)"/>
+        </svg>
+      </div>
+      <div>
+        <div class="hl-title">Quality Education</div>
+        <div class="hl-desc">Bihar Government curriculum delivered with dedication, ensuring strong academic foundations for every student.</div>
+      </div>
+    </div>
+    <div class="highlight-card fu d2">
+      <div class="hl-icon-wrap">
+        <!-- Mortarboard SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <polygon points="14,6 26,12 14,18 2,12" fill="white" opacity=".9"/>
+          <rect x="21" y="12" width="2" height="8" rx="1" fill="white" opacity=".7"/>
+          <ellipse cx="9" cy="18" rx="7" ry="4" fill="white" opacity=".5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="hl-title">Experienced Faculty</div>
+        <div class="hl-desc">A team of 12 qualified and dedicated teachers guiding students toward excellence.</div>
+      </div>
+    </div>
+    <div class="highlight-card fu d3">
+      <div class="hl-icon-wrap">
+        <!-- Free tag SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="3" y="8" width="22" height="14" rx="4" fill="white" opacity=".9"/>
+          <text x="7" y="19" font-size="9" font-weight="bold" fill="#0D7A10">FREE</text>
+        </svg>
+      </div>
+      <div>
+        <div class="hl-title">Free Education</div>
+        <div class="hl-desc">Free textbooks, uniforms, and government scheme benefits for all enrolled students.</div>
+      </div>
+    </div>
+    <div class="highlight-card fu d4">
+      <div class="hl-icon-wrap">
+        <!-- Food tray SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <ellipse cx="14" cy="16" rx="10" ry="6" fill="white" opacity=".9"/>
+          <rect x="4" y="14" width="20" height="3" rx="1.5" fill="white"/>
+          <ellipse cx="14" cy="14" rx="6" ry="3" fill="rgba(13,122,16,0.4)"/>
+        </svg>
+      </div>
+      <div>
+        <div class="hl-title">Mid-Day Meal</div>
+        <div class="hl-desc">Nutritious mid-day meals provided daily to all students under the government scheme.</div>
+      </div>
+    </div>
+    <div class="highlight-card fu d5">
+      <div class="hl-icon-wrap">
+        <!-- Medal SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="17" r="8" fill="white" opacity=".9"/>
+          <circle cx="14" cy="17" r="5" fill="rgba(232,89,10,0.3)"/>
+          <rect x="11" y="4" width="6" height="10" rx="2" fill="white" opacity=".7"/>
+          <rect x="12" y="6" width="4" height="8" rx="1" fill="rgba(232,89,10,0.5)"/>
+        </svg>
+      </div>
+      <div>
+        <div class="hl-title">65+ Years Legacy</div>
+        <div class="hl-desc">Shaping thousands of bright futures since 1961 — a proud legacy of learning and achievement.</div>
+      </div>
+    </div>
+    <div class="highlight-card fu d6">
+      <div class="hl-icon-wrap">
+        <!-- Handshake SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M4 16 Q10 10 14 14 Q18 18 24 12" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".9"/>
+          <circle cx="14" cy="14" r="3" fill="white" opacity=".8"/>
+        </svg>
+      </div>
+      <div>
+        <div class="hl-title">Community Connect</div>
+        <div class="hl-desc">Strong community partnerships to foster the overall growth and welfare of every child.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- TEACHERS / FACULTY -->
+<section id="teachers">
+  <h2 class="section-title">
+    <div class="pill" style="background:linear-gradient(135deg,var(--green),var(--green-l))">
+      <!-- Person SVG -->
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="8" r="5" fill="white" opacity=".9"/>
+        <path d="M3 22 Q3 15 13 15 Q23 15 23 22" fill="white" opacity=".7"/>
+      </svg>
+    </div>
+    Our Faculty
+  </h2>
+
+  <div class="teachers-grid">
+
+    <!-- HEADMASTER -->
+    <div class="teacher-card fu d1">
+      <div class="tc-header"></div>
+      <div class="tc-avatar">
+        <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="36" cy="36" r="36" fill="url(#hm)"/>
+          <defs>
+            <radialGradient id="hm" cx="50%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#1A3A6E"/>
+              <stop offset="100%" stop-color="#0B1D3A"/>
+            </radialGradient>
+          </defs>
+          <circle cx="36" cy="26" r="11" fill="#FFD966" opacity=".9"/>
+          <ellipse cx="36" cy="54" rx="18" ry="13" fill="#FFD966" opacity=".7"/>
+          <!-- Tie -->
+          <polygon points="36,34 33,42 36,46 39,42" fill="#E8590A" opacity=".8"/>
+          <!-- Star badge -->
+          <circle cx="52" cy="20" r="8" fill="#E8590A"/>
+          <text x="48" y="24" font-size="10" fill="white">★</text>
+        </svg>
+      </div>
+      <div class="tc-name">Shri Lalit Kumar</div>
+      <div class="tc-role principal">Headmaster</div>
+    </div>
+
+    <!-- TEACHER CARD MACRO via repeating pattern -->
+    <!-- T1 -->
+    <div class="teacher-card fu d2">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t1)"/><defs><radialGradient id="t1" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#1A5276"/><stop offset="100%" stop-color="#0B1D3A"/></radialGradient></defs><circle cx="36" cy="26" r="11" fill="#ABEBC6" opacity=".9"/><ellipse cx="36" cy="54" rx="18" ry="13" fill="#ABEBC6" opacity=".7"/><text x="29" y="30" font-size="11" font-weight="bold" fill="#0B1D3A">KK</text></svg></div>
+      <div class="tc-name">Kamla Kant Yadav</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#1</div>
+    </div>
+
+    <!-- T2 -->
+    <div class="teacher-card fu d3">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t2)"/><defs><radialGradient id="t2" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#154360"/><stop offset="100%" stop-color="#0B1D3A"/></radialGradient></defs><circle cx="36" cy="26" r="11" fill="#AED6F1" opacity=".9"/><ellipse cx="36" cy="54" rx="18" ry="13" fill="#AED6F1" opacity=".7"/><text x="29" y="30" font-size="11" font-weight="bold" fill="#0B1D3A">DK</text></svg></div>
+      <div class="tc-name">Dhiraj Kumar Singh</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#2</div>
+    </div>
+
+    <!-- T3 -->
+    <div class="teacher-card fu d4">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t3)"/><defs><radialGradient id="t3" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#145A32"/><stop offset="100%" stop-color="#0B3D1D"/></radialGradient></defs><circle cx="36" cy="26" r="11" fill="#A9DFBF" opacity=".9"/><ellipse cx="36" cy="54" rx="18" ry="13" fill="#A9DFBF" opacity=".7"/><text x="30" y="30" font-size="11" font-weight="bold" fill="#0B3D1D">KK</text></svg></div>
+      <div class="tc-name">Kishor Kumar</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#3</div>
+    </div>
+
+    <!-- T4 -->
+    <div class="teacher-card fu d1">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t4)"/><defs><radialGradient id="t4" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#4A235A"/><stop offset="100%" stop-color="#1C0732"/></radialGradient></defs><circle cx="36" cy="26" r="11" fill="#D7BDE2" opacity=".9"/><ellipse cx="36" cy="54" rx="18" ry="13" fill="#D7BDE2" opacity=".7"/><text x="28" y="30" font-size="11" font-weight="bold" fill="#4A235A">MM</text></svg></div>
+      <div class="tc-name">Murli Manohar Chaudhary</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#4</div>
+    </div>
+
+    <!-- T5 female -->
+    <div class="teacher-card fu d2">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t5)"/><defs><radialGradient id="t5" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#922B21"/><stop offset="100%" stop-color="#5B0A05"/></radialGradient></defs><circle cx="36" cy="24" r="11" fill="#F1948A" opacity=".95"/><ellipse cx="36" cy="53" rx="18" ry="13" fill="#F1948A" opacity=".75"/><path d="M25 22 Q36 14 47 22" stroke="#FFD966" stroke-width="2" fill="none"/><text x="30" y="28" font-size="10" font-weight="bold" fill="#922B21">FK</text></svg></div>
+      <div class="tc-name">Ful Kumari</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#5</div>
+    </div>
+
+    <!-- T6 female -->
+    <div class="teacher-card fu d3">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t6)"/><defs><radialGradient id="t6" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#1E6B58"/><stop offset="100%" stop-color="#0A3D2E"/></radialGradient></defs><circle cx="36" cy="24" r="11" fill="#A2D9CE" opacity=".95"/><ellipse cx="36" cy="53" rx="18" ry="13" fill="#A2D9CE" opacity=".75"/><path d="M25 22 Q36 14 47 22" stroke="#FFD966" stroke-width="2" fill="none"/><text x="30" y="28" font-size="10" font-weight="bold" fill="#1E6B58">M</text></svg></div>
+      <div class="tc-name">Meena</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#6</div>
+    </div>
+
+    <!-- T7 female -->
+    <div class="teacher-card fu d4">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t7)"/><defs><radialGradient id="t7" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#1A5276"/><stop offset="100%" stop-color="#0A2740"/></radialGradient></defs><circle cx="36" cy="24" r="11" fill="#85C1E9" opacity=".95"/><ellipse cx="36" cy="53" rx="18" ry="13" fill="#85C1E9" opacity=".75"/><path d="M25 22 Q36 14 47 22" stroke="#FFD966" stroke-width="2" fill="none"/><text x="30" y="28" font-size="10" font-weight="bold" fill="#1A5276">SN</text></svg></div>
+      <div class="tc-name">Sabanaz</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#7</div>
+    </div>
+
+    <!-- T8 -->
+    <div class="teacher-card fu d1">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t8)"/><defs><radialGradient id="t8" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#2E4057"/><stop offset="100%" stop-color="#0D1B2A"/></radialGradient></defs><circle cx="36" cy="26" r="11" fill="#BFC9CA" opacity=".9"/><ellipse cx="36" cy="54" rx="18" ry="13" fill="#BFC9CA" opacity=".7"/><text x="29" y="30" font-size="11" font-weight="bold" fill="#2E4057">MN</text></svg></div>
+      <div class="tc-name">Md. Noor Hasham</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#8</div>
+    </div>
+
+    <!-- T9 female -->
+    <div class="teacher-card fu d2">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t9)"/><defs><radialGradient id="t9" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#7B241C"/><stop offset="100%" stop-color="#4A0E09"/></radialGradient></defs><circle cx="36" cy="24" r="11" fill="#F5B7B1" opacity=".95"/><ellipse cx="36" cy="53" rx="18" ry="13" fill="#F5B7B1" opacity=".75"/><path d="M25 22 Q36 14 47 22" stroke="#F4C430" stroke-width="2" fill="none"/><text x="30" y="28" font-size="10" font-weight="bold" fill="#7B241C">RK</text></svg></div>
+      <div class="tc-name">Rinku Kumari</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#9</div>
+    </div>
+
+    <!-- T10 -->
+    <div class="teacher-card fu d3">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t10)"/><defs><radialGradient id="t10" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#1A6B3A"/><stop offset="100%" stop-color="#083D1E"/></radialGradient></defs><circle cx="36" cy="26" r="11" fill="#82E0AA" opacity=".9"/><ellipse cx="36" cy="54" rx="18" ry="13" fill="#82E0AA" opacity=".7"/><text x="30" y="30" font-size="11" font-weight="bold" fill="#1A6B3A">BK</text></svg></div>
+      <div class="tc-name">Baiju Kumar</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#10</div>
+    </div>
+
+    <!-- T11 female -->
+    <div class="teacher-card fu d4">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t11)"/><defs><radialGradient id="t11" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#5B2C6F"/><stop offset="100%" stop-color="#2C0A3E"/></radialGradient></defs><circle cx="36" cy="24" r="11" fill="#C39BD3" opacity=".95"/><ellipse cx="36" cy="53" rx="18" ry="13" fill="#C39BD3" opacity=".75"/><path d="M25 22 Q36 14 47 22" stroke="#FFD966" stroke-width="2" fill="none"/><text x="30" y="28" font-size="10" font-weight="bold" fill="#5B2C6F">NK</text></svg></div>
+      <div class="tc-name">Neha Kumari</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#11</div>
+    </div>
+
+    <!-- T12 female -->
+    <div class="teacher-card fu d1">
+      <div class="tc-header"></div>
+      <div class="tc-avatar"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="36" fill="url(#t12)"/><defs><radialGradient id="t12" cx="40%" cy="30%" r="75%"><stop offset="0%" stop-color="#1B4F72"/><stop offset="100%" stop-color="#0A2540"/></radialGradient></defs><circle cx="36" cy="24" r="11" fill="#7FB3D3" opacity=".95"/><ellipse cx="36" cy="53" rx="18" ry="13" fill="#7FB3D3" opacity=".75"/><path d="M25 22 Q36 14 47 22" stroke="#FFD966" stroke-width="2" fill="none"/><text x="30" y="28" font-size="10" font-weight="bold" fill="#1B4F72">SK</text></svg></div>
+      <div class="tc-name">Suman Kumari</div>
+      <div class="tc-role">Teacher</div>
+      <div class="tc-num">#12</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">
+    <div class="pill" style="background:linear-gradient(135deg,var(--saffron),#C44A00)">
+      <!-- Phone SVG -->
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M5 5 Q5 3 7 3 L10 3 L12 9 L9 11 Q11 15 15 17 L17 14 L23 16 L23 19 Q23 21 21 21 Q8 21 5 8 Z" fill="white" opacity=".9"/>
+      </svg>
+    </div>
+    Contact Us
+  </h2>
+  <div class="contact-section fu">
+    <div class="contact-top">
+      <div class="contact-item">
+        <div class="c-icon">📍</div>
+        <div>
+          <div class="c-label">Address</div>
+          <div class="c-value">Usari, Biraul, Darbhanga, Bihar</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">📞</div>
+        <div>
+          <div class="c-label">Phone</div>
+          <div class="c-value"><a href="tel:9939892025">9939892025</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">🪪</div>
+        <div>
+          <div class="c-label">UDISE Code</div>
+          <div class="c-value">10131106401</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">👨‍💼</div>
+        <div>
+          <div class="c-label">Headmaster</div>
+          <div class="c-value">Shri Lalit Kumar</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">📅</div>
+        <div>
+          <div class="c-label">Established</div>
+          <div class="c-value">1961</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">🎓</div>
+        <div>
+          <div class="c-label">Session</div>
+          <div class="c-value">2026 – 2027 (Admission Open)</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <div>
+        <p>📣 Admission Open for Session 2026–2027</p>
+        <small>Call us now or visit the school for enrollment details</small>
+      </div>
+      <a href="tel:9939892025" class="btn-primary">📞 9939892025</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-tricolor"></div>
+  <strong>Madhya Vidyalaya Usari, Biraul, Darbhanga</strong><br/>
+  मध्य विद्यालय उसरी, बिरौल, दरभंगा &nbsp;·&nbsp; Bihar, India &nbsp;·&nbsp; Est. 1961<br/>
+  UDISE: 10131106401 &nbsp;|&nbsp; 📞 9939892025 &nbsp;|&nbsp; Headmaster: Shri Lalit Kumar
+  <div class="footer-tricolor"></div>
+  <span style="font-size:.7rem;opacity:.5">© 2026 — All Rights Reserved &nbsp;·&nbsp; Session 2026–2027</span>
+</footer>
+
+</body>
+</html>
